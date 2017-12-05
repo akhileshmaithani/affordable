@@ -1,0 +1,37 @@
+<a (click)="onClick(apartment)">
+    <div class="col-sm-12">
+        <div class="col-sm-5" style="float: left">
+            <a [routerLink]="['individual-list-view', apartment.Address]"><img
+                src="{{apartment.FeaturedImage}}" style="padding: 10px 2px 10px 2px;margin-left: 3px;
+    min-width: 200px;max-width: 200px;
+   "></a>
+            <div style="font-size: 18px; color: black; clear: left; text-align: center;">
+                {{apartment.Address}}
+            </div>
+
+        </div>
+
+        <div class="col-sm-6" style="float: right; padding: 10px 2px 10px 2px">
+
+            <div style="font-size: 30px; font-weight: bold; color: #13955E;">${{apartment.Rent}}
+            </div>
+            <br/>
+            <div style="font-size: 22px;; color: black;">{{apartment.Bedrooms}} bdrm/
+                {{apartment.Bathrooms}} bath
+            </div>
+            <br/>
+            <div style="font-size: 20px;; color: black;"> {{apartment.Amenities}}</div>
+            <br/>
+
+        </div>
+
+
+
+
+    </div>
+
+</a>
+
+
+
+

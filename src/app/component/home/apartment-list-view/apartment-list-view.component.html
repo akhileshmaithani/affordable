@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let listData of apartementData; let i=index">
+      <a [routerLink]="['/individual-list-view', listData.Address]" style="text-decoration: none;">
+        <div class="card">
+          <img class="card-img-top" src="{{listData.FeaturedImage}}" style="height: 200px;">
+          <div class="card-block">
+            <h4 class="card-title">{{listData.Address}}</h4>
+            <div class="meta">
+              <span>{{listData.City}}</span>
+            </div>
+            <div class="card-text">
+              <h4>
+                <b>${{listData.Rent}}</b>
+              </h4>
+              <span>{{listData.Bedrooms}} BD</span>
+              <span style="padding-left: 10px;">{{listData.Bathrooms}} BA</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- <a routerLink=["individual-list-view"] class="float-right">View Detail</a>-->
+            <!--<span><i class=""></i>75 Friends</span>-->
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>

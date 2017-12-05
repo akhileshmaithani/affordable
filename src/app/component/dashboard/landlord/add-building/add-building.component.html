@@ -1,0 +1,53 @@
+<form [formGroup]="buildingForm" (ngSubmit)="onSubmit(buildingForm.value)">
+    <div class="form-group row">
+        <div class="col-sm-3">
+            <label class="col-form-label bold">Address</label>
+        </div>
+        <div class="col-sm-7">
+            <ng4geo-autocomplete [userSettings]="geoAddressSettings"
+                                 (componentCallback)="geoautoCompleteCallback($event)"></ng4geo-autocomplete>
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3">
+            <label class="col-form-label bold">City</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="text" formControlName="City" class="form-control form-control-lg" placeholder="City">
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3">
+            <label class="col-form-label bold">State</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="text" formControlName="State" class="form-control form-control-lg" placeholder="State">
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3">
+            <label class="col-form-label bold">Zip Code</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="text" formControlName="ZipCode" class="form-control form-control-lg" placeholder="Zip Code">
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3">
+            <label class="col-form-label bold">No of Units</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="text" class="form-control form-control-lg" placeholder="Units">
+        </div>
+        <div class="col-lg-2">
+            <button type="submit" class="btn btn-outline-primary btn-lg " data-toggle="modal"
+            >Save
+            </button>
+        </div>
+
+    </div>
+</form>

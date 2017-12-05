@@ -1,0 +1,101 @@
+<div [@dialog] *ngIf="visible" class="dialog">
+    <simple-notifications></simple-notifications>
+    <div class="container" style="box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2)!important;">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+            <h1 class="text-center" style="position: relative;
+        margin-top: -3%;">Welcome</h1>
+
+            <h1 class="text-center">Sign up for a Affordable City account.</h1>
+            <br>
+            <div class="row" style="margin-top:-2%!important">
+                <div class="input-group input-group-icon">
+                    <input type="text" placeholder="First Name" formControlName="FirstName" required/>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top:-1em!important;">
+                    <label
+                        *ngIf="signupForm.get('FirstName').hasError('required') && signupForm.get('FirstName').touched"
+                        style="color: darkred;font-size: 13px!important;">* First name required.</label>
+                </div>
+                <div class="col-lg-12">
+                    <label
+                        *ngIf="signupForm.get('FirstName').hasError('maxlength') && signupForm.get('FirstName').dirty"
+                        style="color: darkred;font-size: 13px!important;">* Maximum 20 character limit.</label>
+                </div>
+                <div class="input-group input-group-icon">
+                    <input type="text" placeholder="Last Name" formControlName="LastName"/>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <label *ngIf="signupForm.get('LastName').hasError('maxlength') && signupForm.get('LastName').dirty"
+                           style="color: darkred;font-size: 13px!important;">* Maximum 10 character limit.</label>
+                </div>
+                <div class="input-group input-group-icon">
+                    <input type="email" placeholder="Email Address" formControlName="Email" required/>
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top:-1em!important;">
+                    <label *ngIf="signupForm.get('Email').hasError('required') && signupForm.get('Email').touched"
+                           style="color: darkred;font-size: 13px!important;">* Email required.</label>
+                </div>
+                <div class="col-lg-12" style="margin-top:-1em!important;">
+                    <label *ngIf="signupForm.get('Email').hasError('pattern') && signupForm.get('Email').dirty"
+                           style="color: darkred;font-size: 13px!important;">* Please enter valid email.</label>
+                </div>
+                <div class="input-group input-group-icon">
+                    <input type="password" placeholder="Password" formControlName="Password" required/>
+                    <div class="input-icon">
+                        <i class="fa fa-key"></i>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top:-1em!important;">
+                    <label *ngIf="signupForm.get('Password').hasError('required') && signupForm.get('Password').touched"
+                           style="color: darkred;font-size: 13px!important;">* Password required.</label>
+                </div>
+                <div class="col-lg-12" style="margin-top:-1em!important;">
+                    <label
+                        *ngIf="signupForm.get('Password').hasError('minlength') && signupForm.get('Password').touched"
+                        style="color: darkred; font-size: 13px!important;">* Minimum 6 character required.</label>
+                </div>
+                <div class="col-lg-12" style="margin-top:-1em!important;">
+                    <label
+                        *ngIf="signupForm.get('Password').hasError('maxlength') && signupForm.get('Password').touched"
+                        style="color: darkred; font-size: 13px!important;">* Maximum 10 character limit.</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <button [disabled]="!signupForm.valid" type="submit"
+                            class="btn btn-lg btn-success col-lg-12 btnSubmit">
+                        <b>CREATE ACCOUNT</b>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+
+            <div class="col-sm-12" style="text-align:center;padding:.2em;">
+                <div class="col-sm-6" style="float:left;">
+                    <a routerLink="../sign-in" style="color:dimgray;text-decoration:underline;">Terms of Use</a>
+                </div>
+                <div class="col-sm-6" style="float:right;">
+                    <a routerLink="../sign-in" style="color:dimgray;text-decoration:underline;">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="col-sm-12" style="text-align:center;font-weight: bold!important;
+                font-size: 15px;color:dimgrey;" >
+                Already have an account
+                <a (click)="closeSignup()" style="cursor: pointer;"><u>sign in </u></a>
+            </div>
+        </div>
+    </div>
+    <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>
+<app-signin [(visible)]="showSignInDialog"></app-signin>

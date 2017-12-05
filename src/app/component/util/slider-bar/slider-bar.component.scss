@@ -1,0 +1,78 @@
+@import '../../../../config.scss';
+
+.slider-bar-container {
+	position: relative;
+	.slider-bar {
+		height: $slider-bar-height;
+		width: 100%;
+		background-color: $slider-bar-color;
+		position: relative;
+		border-radius: $slider-bar-height / 2;
+
+		.slider-bar-highlight {
+			position: absolute;
+			left: 0;
+			width: 50%;
+			height: 100%;
+			background-color: $highlight-color;
+			border-radius: $slider-bar-height / 2;
+		}
+	}
+
+	.slider-labels {
+		margin-top: 15px;
+		width: 100%;
+		display: flex;
+		&::after {
+			display: block;
+			position: absolute;
+			content: '';
+			height: 1px;
+			width: $slider-bar-height / 4;
+			background-color: #BBB;
+			top: $slider-bar-height + 2px;
+			right: 0;
+		}
+		.slider-label-item {
+			flex: 1;
+			font-size:
+
+			span {
+				transform: translate(-50%, 0);
+				position: relative;
+				display: inline-block;
+			}
+
+			&:first-child {
+				span {
+					transform: translate(-20%, 0);
+				}
+			}
+
+			&:last-child {
+				span {
+					transform: translate(20%, 0);
+				}
+			}
+
+			&::after {
+				display: block;
+				position: absolute;
+				content: '';
+				height: 1px;
+				width: $slider-bar-height / 4;
+				background-color: #BBB;
+				top: $slider-bar-height + 2px;
+			}
+
+			&.is-last {
+				position: absolute;
+				right: 0;
+
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+}

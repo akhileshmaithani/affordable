@@ -1,0 +1,20 @@
+<div class="slider-pickers-container">
+    <div class="slider-picker-inner">
+
+        <div appSliderPicker #picker1 class="slider-picker" *ngIf="type === 'single'" [defaultValue]='model.value' [max]="max" [min]="min"
+            [opts]="opts" (onChange)="onChange($event)" (onFinish)="onFinish($event)">
+            <ng2-slider-popover [value]="model.value" [opts]="opts"></ng2-slider-popover>
+        </div>
+
+        <div appSliderPicker #picker2 class="slider-picker" *ngIf="type === 'range'" [defaultValue]='model.value[0]' [max]="max"
+            [min]="min" [index]="0" [opts]="opts" [maxValue]="model.value[1]" (onChange)="onChange($event)" (onFinish)="onFinish($event)">
+
+            <ng2-slider-popover [value]="model.value[0]" [opts]="opts"></ng2-slider-popover>
+        </div>
+
+        <div appSliderPicker #picker3 class="slider-picker" *ngIf="type === 'range'" [defaultValue]='model.value[1]' [max]="max"
+            [min]="min" [opts]="opts" [minValue]="model.value[0]" [index]="1" (onChange)="onChange($event)" (onFinish)="onFinish($event)">
+            <ng2-slider-popover [value]="model.value[1]" [opts]="opts"></ng2-slider-popover>
+        </div>
+    </div>
+</div>

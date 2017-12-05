@@ -1,0 +1,94 @@
+/*styles for home content only*/
+@import 'src/styles/_variables.scss';
+@import '../../../../config.scss';
+
+div#map {
+    height: 300px;
+    width: 300px;
+}
+
+div#map-container {
+    width: 300px;
+    height: 300px;
+}
+
+agm-map {
+    width: 100%;
+    height: 101vh;
+}
+
+h1.map-container {
+    position: relative;
+    margin-bottom: 0 !important;
+    overlflow: hidden;
+}
+
+.map-container:before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #7b4397;
+    background: -webkit-linear-gradient(180deg, white 38px, rgba(255, 255, 255, 0) 95%);
+    background: linear-gradient(180deg, white 38px, rgba(255, 255, 255, 0) 95%);
+    z-index: 1;
+    overflow: visible;
+
+}
+
+#map-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 24vw;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    padding-top: 130px;
+    padding-left: 1%;
+    padding-right: 1%;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 21px rgba(0, 0, 0, 0.14);
+    .side-item {
+        padding-bottom: 30px;
+    }
+}
+
+.slider-selection {
+    background: #BABABA;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 35px;
+    left: 20%;
+    z-index: 999;
+    background: transparent;
+    border: none;
+    color: $purple;
+    padding: 6px 10px;
+    box-shadow: none;
+    -webkit-transition-delay: .2s; // Safari /
+    transition-delay: .2s;
+    &.collapsed {
+        top: 81px;
+        left: 0;
+    }
+}
+
+:host /deep/ * {
+    box-sizing: border-box;
+}
+
+.ng2-slider-component {
+    position: relative;
+    padding: $slider-padding;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-size: 12px;
+}

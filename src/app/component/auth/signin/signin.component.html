@@ -1,0 +1,71 @@
+<div [@dialog] *ngIf="visible" class="dialog">
+    <simple-notifications></simple-notifications>
+
+    <div class="container" style="box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2)!important;">
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm.value)">
+
+            <h1 class="text-center">Welcome</h1>
+
+            <h1 class="text-center">Sign into your Affordable.City account</h1>
+            <br>
+            <br>
+            <div class="row">
+
+                <div class="input-group input-group-icon">
+                    <input type="email" placeholder="Email" formControlName="UserName" required/>
+                    <div class="input-icon"><i class="fa fa-envelope"></i></div>
+                </div>
+                <div class="col-lg-12">
+                    <label *ngIf="signinForm.get('UserName').hasError('required') && signinForm.get('UserName').touched"
+                           style="color: darkred">* Email required.</label>
+                </div>
+                <div class="col-lg-12">
+                    <label *ngIf="signinForm.get('UserName').hasError('email') && signinForm.get('UserName').dirty"
+                           style="color: darkred">* Please enter valid email.</label>
+                </div>
+                <div class="input-group input-group-icon">
+                    <input type="password" placeholder="Password" formControlName="Password" required/>
+                    <div class="input-icon"><i class="fa fa-key"></i></div>
+                </div>
+                <div class="col-lg-12">
+                    <label *ngIf="signinForm.get('Password').hasError('required') && signinForm.get('Password').touched"
+                           style="color: darkred">* Password required.</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <button [disabled]="!signinForm.valid" type="submit" id="btnSubmit"
+                            class="btn btn-lg btn-success col-lg-12 btnSubmit"><b>LOGIN</b></button>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="row">
+            <div class="col-sm-12" style="text-align:center;padding:0.5em;">
+                <div class="col-sm-6" style="float:left;text-align:right;">
+                    <a routerLink="#" style="color:dimgray;text-decoration:underline;">Terms of Use</a>
+                </div>
+                <div class="col-sm-6" style="float:right;text-align:left;">
+                    <a routerLink="#" style="color:dimgray;text-decoration:underline;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left:20%;">
+            <h2 style="color:dimgray;">Don't have an account </h2>&nbsp;&nbsp;
+            <h2><a (click)="closeSignin()" style="cursor: pointer"><u> sign up</u> </a></h2>
+
+        </div>
+
+
+        <button (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
+    </div>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>
+<ng-template>
+    <app-signup [(visible)]="showSignUpDialog"></app-signup>
+</ng-template>
+
+
